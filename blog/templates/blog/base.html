@@ -1,4 +1,5 @@
 {% load static %}
+
 <!doctype html>
 <html lang="en">
 
@@ -23,8 +24,20 @@
 
 <body>
 
+    <div class="container">
+        <a href="{% url 'blog-home'%}" class="btn btn-primary">Home</a>
+        <a href="{% url 'register'%}" class="btn btn-primary">Register</a>
+
+
+
+    </div>
+
 
     <div class="container bg-dark text-white">
+        {% for message in messages %}
+        <div class="alert alert-{{messages.tags}}"> {{message}}
+        </div>
+        {% endfor %}
         {% block content %}
 
         {% endblock content%}
